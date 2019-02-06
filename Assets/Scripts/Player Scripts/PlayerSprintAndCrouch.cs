@@ -45,7 +45,24 @@ public class PlayerSprintAndCrouch : MonoBehaviour
 
     void Crouch()
     {
-        
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            if (is_Crouching)
+            {
+
+                look_Root.localPosition = new Vector3(0f, stand_Height, 0f);
+                playerMovement.speed = move_Speed;
+
+                is_Crouching = false;
+            }
+            else
+            {
+                look_Root.localPosition = new Vector3(0f, crouch_Height, 0f);
+                playerMovement.speed = crouch_Speed;
+
+                is_Crouching = true;
+            }
+        }
     }// crouch
 
 } // class
